@@ -1,0 +1,15 @@
+#specifies the base image which will be used
+FROM openjdk:17
+
+#specifies the working directory
+#when you set the working directory all the files are stored there
+WORKDIR /use/local/app
+
+#copies the files from source to destination path; in our case the working directory
+COPY . .
+
+#tells the builder to run the specified command
+RUN javac AddNumbers.java
+
+#default command a container using this image will run
+CMD ["java","AddNumbers"]
